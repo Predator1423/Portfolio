@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLAYER LOG — 신지운 게임 플레이 이력</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14161c; --panel: #1c1f28; --panel-line: #2a2e3a;
+    --text: #e8e6e1; --text-dim: #8b8f9c;
+    --amber: #e8a33d; --teal: #4fb0ae; --danger: #d9634f;
+    --radius: 3px; --mono: 'JetBrains Mono', monospace; --sans: 'Pretendard', -apple-system, sans-serif;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background: var(--bg); color: var(--text); font-family: var(--sans); line-height:1.6;
+    background-image: linear-gradient(var(--panel-line) 1px, transparent 1px), linear-gradient(90deg, var(--panel-line) 1px, transparent 1px);
+    background-size: 48px 48px; background-attachment: fixed; background-position: -1px -1px;
+  }
+  ::selection{ background: var(--amber); color:#14161c; }
+  a{ color:inherit; text-decoration:none; }
+
+  .eyebrow{ font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; color: var(--amber); text-transform: uppercase; display:flex; align-items:center; gap:8px; }
+  .eyebrow::before{ content:""; width:6px; height:6px; background: var(--amber); display:inline-block; }
+
+  nav{
+    position: sticky; top:0; z-index: 50; display:flex; justify-content:space-between; align-items:center;
+    padding: 18px 6vw; background: rgba(20,22,28,0.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--panel-line);
+  }
+  .logo{ font-family: var(--mono); font-weight:700; font-size:14px; letter-spacing: 0.05em; }
+  .logo span{ color: var(--amber); }
+  .back-link{ font-family: var(--mono); font-size: 13px; color: var(--text-dim); display:flex; align-items:center; gap:6px; }
+  .back-link:hover{ color: var(--amber); }
+
+  section{ padding: 60px 6vw; max-width: 1180px; margin: 0 auto; }
+  .hero-block{ padding-top: 50px; padding-bottom: 30px; }
+  .hero-panel{ border: 1px solid var(--panel-line); background: var(--panel); border-radius: var(--radius); padding: 40px; position:relative; }
+  .hero-panel::before{ content:"PLAYER_LOG.db"; position:absolute; top:16px; right:20px; font-family: var(--mono); font-size:11px; color: var(--panel-line); letter-spacing:0.08em; }
+  .hero-panel h1{ font-family: var(--mono); font-size: clamp(26px, 4vw, 40px); font-weight:700; margin: 16px 0 10px; }
+  .hero-panel p{ color: var(--text-dim); max-width: 640px; margin-bottom: 30px; font-size: 15px; }
+
+  .kpi-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 16px; }
+  .kpi{ border: 1px solid var(--panel-line); border-radius: var(--radius); padding: 16px 18px; background: rgba(255,255,255,0.01); }
+  .kpi .num{ font-family: var(--mono); font-size: 26px; color: var(--amber); font-weight:700; }
+  .kpi .label{ font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing:0.06em; margin-top:4px; }
+
+  .section-head{ margin-bottom: 32px; }
+  .section-head h2{ font-family: var(--mono); font-size: 24px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-top: 8px;}
+  .section-head h2 small{ font-size: 13px; color: var(--text-dim); font-weight:400; }
+
+  /* GENRE CARDS */
+  .genre-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 18px; }
+  .genre-card{ border:1px solid var(--panel-line); background: var(--panel); border-radius: var(--radius); padding: 20px; }
+  .genre-card .g-num{ font-family: var(--mono); color: var(--teal); font-size: 12px; margin-bottom: 6px; }
+  .genre-card h3{ font-size: 17px; margin-bottom: 8px; }
+  .genre-card p{ font-size: 13px; color: var(--text-dim); }
+
+  /* PLATFORM GROUP */
+  .platform-group{ margin-bottom: 46px; }
+  .platform-group:last-child{ margin-bottom: 0; }
+  .platform-head{ display:flex; align-items:center; gap:12px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--panel-line); }
+  .platform-tag{ font-family: var(--mono); font-size: 11px; letter-spacing:0.06em; color: var(--bg); background: var(--teal); padding: 4px 10px; border-radius: var(--radius); font-weight:700; }
+  .platform-head h3{ font-size: 18px; font-weight:600; }
+  .platform-head span.count{ font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left:auto; }
+
+  .game-table{ width:100%; border-collapse: collapse; border: 1px solid var(--panel-line); border-radius: var(--radius); overflow:hidden; }
+  .game-table th{
+    text-align:left; font-family: var(--mono); font-size: 10.5px; letter-spacing:0.06em; color: var(--text-dim);
+    background: var(--panel); padding: 10px 14px; border-bottom: 1px solid var(--panel-line); white-space:nowrap;
+  }
+  .game-table td{ padding: 12px 14px; border-bottom: 1px solid var(--panel-line); font-size: 13px; vertical-align: top; }
+  .game-table tr:last-child td{ border-bottom:none; }
+  .game-table tr:hover td{ background: rgba(232,163,61,0.04); }
+  .g-name{ font-weight:600; color: var(--text); }
+  .g-genre{ font-family: var(--mono); font-size: 11.5px; color: var(--teal); }
+  .g-time{ font-family: var(--mono); font-size: 12px; color: var(--text-dim); white-space:nowrap; }
+  .g-status{ font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: var(--radius); border:1px solid var(--panel-line); white-space:nowrap; }
+  .g-status.playing{ color: var(--teal); border-color: var(--teal); }
+  .g-status.done{ color: var(--text-dim); }
+  .g-progress{ font-size: 12.5px; color: var(--text-dim); max-width: 320px; }
+  .g-note{ font-size: 11.5px; color: var(--amber); }
+
+  @media (max-width: 900px){
+    .game-table{ display:block; overflow-x:auto; white-space:nowrap; }
+  }
+  @media (max-width: 760px){
+    section{ padding: 44px 6vw; }
+    .hero-panel{ padding: 26px; }
+    .nav-links{ display:none; }
+  }
+  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  footer{ padding: 30px 6vw; text-align:center; font-family: var(--mono); font-size: 12px; color: var(--text-dim); border-top: 1px solid var(--panel-line); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">JIWOON.DEV<span>_</span></div>
+  <a class="back-link" href="index.html">← HOME</a>
+</nav>
+
+<section class="hero-block">
+  <div class="hero-panel">
+    <div class="eyebrow">PLAYER PROFILE</div>
+    <h1>플레이 이력 전체 목록</h1>
+    <p>기획서를 쓰기 전에 늘 플레이부터 합니다. 선호 장르부터 깊이 파고든 게임, 최근 3개월간의 플레이까지 — 이력서에 제출한 게임 플레이 이력 원본을 그대로 정리했습니다.</p>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="num">30+</div><div class="label">등록 게임 수</div></div>
+      <div class="kpi"><div class="num">4,300+</div><div class="label">시간 기록된 항목 합산(h)</div></div>
+      <div class="kpi"><div class="num">4</div><div class="label">선호 장르</div></div>
+      <div class="kpi"><div class="num">MMO~로그라이크</div><div class="label">플레이 장르 스펙트럼</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="live" style="padding-top:0;">
+  <div class="section-head">
+    <div class="eyebrow">LIVE / STEAM.SYNC</div>
+    <h2>실시간 스팀 현황 <small id="live-updated">불러오는 중...</small></h2>
+  </div>
+  <div id="live-panel" class="hero-panel" style="padding:32px;">
+    <p id="live-status" style="color:var(--text-dim); font-size:14px;">스팀 데이터를 불러오는 중입니다...</p>
+    <div id="live-content" style="display:none;">
+      <div class="kpi-grid" style="margin-bottom:28px;">
+        <div class="kpi"><div class="num" id="live-total-hours">–</div><div class="label">누적 플레이 시간(h)</div></div>
+        <div class="kpi"><div class="num" id="live-total-games">–</div><div class="label">보유 게임 수</div></div>
+        <div class="kpi"><div class="num" id="live-now">–</div><div class="label">현재 상태</div></div>
+      </div>
+      <div class="platform-group" style="margin-bottom:28px;">
+        <div class="platform-head"><span class="platform-tag">RECENT 2 WEEKS</span><h3>최근 2주 플레이</h3></div>
+        <table class="game-table"><tbody id="live-recent"></tbody></table>
+      </div>
+      <div class="platform-group" style="margin-bottom:0;">
+        <div class="platform-head"><span class="platform-tag">TOP PLAYED</span><h3>누적 플레이 시간 TOP 8</h3></div>
+        <table class="game-table"><tbody id="live-top"></tbody></table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="genres">
+  <div class="section-head">
+    <div class="eyebrow">01 / PREFERENCE</div>
+    <h2>선호 장르 <small>주로 플레이했거나 가장 선호하는 장르와 이유</small></h2>
+  </div>
+  <div class="genre-grid">
+    <div class="genre-card">
+      <div class="g-num">01</div>
+      <h3>FPS</h3>
+      <p>어렸을 때부터 영화를 통해 총기에 대한 동경이 있었고, 순수 실력으로 상대와 겨루는 경험과 피지컬·집중력을 쏟아 승리했을 때의 쾌감을 좋아합니다.</p>
+    </div>
+    <div class="genre-card">
+      <div class="g-num">02</div>
+      <h3>액션 어드벤처</h3>
+      <p>게임이 진행될수록 강해지는 적과 자신의 캐릭터를 통해 전투가 확장되어가는 경험을 좋아합니다.</p>
+    </div>
+    <div class="genre-card">
+      <div class="g-num">03</div>
+      <h3>RPG</h3>
+      <p>캐릭터의 이야기를 바라보는 관점이 아니라 이입해서 본인이 성장하는, 몰입도 높은 경험을 좋아합니다.</p>
+    </div>
+    <div class="genre-card">
+      <div class="g-num">04</div>
+      <h3>MMORPG</h3>
+      <p>다양한 사람들과 협력해 강력한 보스를 토벌하고, 꾸준히 캐릭터가 성장해 더 강한 보스에 도전하는 재미를 좋아합니다.</p>
+    </div>
+  </div>
+</section>
+
+<section id="deep-list">
+  <div class="section-head">
+    <div class="eyebrow">02 / DEEP PLAY</div>
+    <h2>깊이 있게 플레이한 게임 <small>플랫폼별 전체 목록</small></h2>
+  </div>
+
+  <div class="platform-group">
+    <div class="platform-head"><span class="platform-tag">PC / STEAM</span><h3>PC / Steam</h3><span class="count">11개</span></div>
+    <table class="game-table">
+      <thead><tr><th>게임명</th><th>장르</th><th>플레이 시간(기간)</th><th>현재 플레이</th><th>플레이 정도</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td class="g-name">로스트아크</td><td class="g-genre">MMORPG</td><td class="g-time">21.03 ~ 현재</td><td><span class="g-status playing">Y</span></td><td class="g-progress">엔드 컨텐츠 레벨 꾸준히 유지 / 카멘 레이드 이클립스 칭호 보유</td><td class="g-note">과금액 435,200원</td></tr>
+        <tr><td class="g-name">발더스게이트3</td><td class="g-genre">CRPG</td><td class="g-time">205시간</td><td><span class="g-status playing">Y</span></td><td class="g-progress">4회차 완료, 5회차 진행중 / 명예모드 진행중</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">GTA5</td><td class="g-genre">오픈월드 어드벤처</td><td class="g-time">556시간</td><td><span class="g-status playing">Y</span></td><td class="g-progress">온라인 레벨 200+ / 모든 습격·미션 컨텐츠 플레이 완료</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">몬스터헌터 월드/아이스본</td><td class="g-genre">액션 어드벤처</td><td class="g-time">476시간</td><td><span class="g-status done">N</span></td><td class="g-progress">마스터랭크 246 / 모든 무기로 밀라보레아스 토벌 / 쌍검 모든 속성 세팅 사용</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">다크소울3</td><td class="g-genre">액션 어드벤처</td><td class="g-time">164시간</td><td><span class="g-status done">N</span></td><td class="g-progress">모든 엔딩으로 게임 완료 / 8회차 이상 다른 세팅으로 클리어</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">엘든링</td><td class="g-genre">액션 어드벤처</td><td class="g-time">128시간</td><td><span class="g-status playing">Y</span></td><td class="g-progress">3회차 진행중 / DLC 클리어 1회</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">오버워치</td><td class="g-genre">히어로 슈터</td><td class="g-time">16.05 ~ 17.05</td><td><span class="g-status done">N</span></td><td class="g-progress">경쟁전 티어 그랜드마스터 / 최고점수 4200+ / 탱커·힐러 포지션</td><td class="g-note">오리진 에디션 구매</td></tr>
+        <tr><td class="g-name">오버워치2</td><td class="g-genre">히어로 슈터</td><td class="g-time">22.12 ~ 현재</td><td><span class="g-status playing">Y</span></td><td class="g-progress">빠른대전 위주 플레이 / 경쟁전 다이아 티어</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">콜오브듀티 모던워페어</td><td class="g-genre">FPS</td><td class="g-time">400+시간</td><td><span class="g-status done">N</span></td><td class="g-progress">멀티플레이 모든 무기 업적작 완료 / 다마스커스 스킨 보유</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">APEX 레전드</td><td class="g-genre">배틀로얄 슈터</td><td class="g-time">600+시간</td><td><span class="g-status done">N</span></td><td class="g-progress">4000dmg 배지 획득 / 랭크 플래티넘</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">이터널리턴</td><td class="g-genre">배틀로얄 MOBA</td><td class="g-time">571시간</td><td><span class="g-status done">N</span></td><td class="g-progress">일반게임 위주 플레이 / 골드·플래티넘 티어</td><td class="g-note">–</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="platform-group">
+    <div class="platform-head"><span class="platform-tag">MOBILE</span><h3>모바일</h3><span class="count">1개</span></div>
+    <table class="game-table">
+      <thead><tr><th>게임명</th><th>장르</th><th>플레이 시간(기간)</th><th>현재 플레이</th><th>플레이 정도</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td class="g-name">블루아카이브</td><td class="g-genre">수집형 RPG</td><td class="g-time">출시 ~ 23년 5월</td><td><span class="g-status done">N</span></td><td class="g-progress">메인스토리, 이벤트 퀘스트 꾸준히 진행</td><td class="g-note">–</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="platform-group">
+    <div class="platform-head"><span class="platform-tag">CONSOLE</span><h3>콘솔</h3><span class="count">2개</span></div>
+    <table class="game-table">
+      <thead><tr><th>게임명</th><th>장르</th><th>플레이 시간(기간)</th><th>현재 플레이</th><th>플레이 정도</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td class="g-name">레드데드리뎀션2</td><td class="g-genre">오픈월드 어드벤처</td><td class="g-time">350+시간</td><td><span class="g-status done">N</span></td><td class="g-progress">싱글플레이 100% 달성 / 2회차 진행으로 모든 엔딩 완료</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">갓오브워</td><td class="g-genre">액션 어드벤처</td><td class="g-time">150+시간</td><td><span class="g-status done">N</span></td><td class="g-progress">업적 100% 플래티넘 클리어</td><td class="g-note">–</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="recent">
+  <div class="section-head">
+    <div class="eyebrow">03 / RECENT 3 MONTHS</div>
+    <h2>최근 3개월 플레이 <small>최근 플레이 경험이 있는 게임 목록</small></h2>
+  </div>
+
+  <div class="platform-group">
+    <div class="platform-head"><span class="platform-tag">PC / STEAM</span><h3>PC / Steam</h3><span class="count">10개</span></div>
+    <table class="game-table">
+      <thead><tr><th>게임명</th><th>장르</th><th>플레이 시간(기간)</th><th>현재 플레이</th><th>플레이 정도</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td class="g-name">배틀그라운드</td><td class="g-genre">배틀로얄 슈터</td><td class="g-time">400+시간</td><td><span class="g-status playing">Y</span></td><td class="g-progress">주기적으로 플레이</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">철권8</td><td class="g-genre">대전 격투</td><td class="g-time">110+시간</td><td><span class="g-status playing">Y</span></td><td class="g-progress">킹 주력으로 플레이 / 랭크매치 계급 푸진</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">킹덤컴: 딜리버런스</td><td class="g-genre">RPG</td><td class="g-time">60시간</td><td><span class="g-status playing">Y</span></td><td class="g-progress">스토리 후반 진행중</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">마운트 앤 블레이드2</td><td class="g-genre">전략 RPG</td><td class="g-time">61시간</td><td><span class="g-status done">N</span></td><td class="g-progress">엔딩 컷신 이후 모든 도시 점령</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">씨 오브 시브즈</td><td class="g-genre">어드벤처</td><td class="g-time">50시간</td><td><span class="g-status done">N</span></td><td class="g-progress">모든 허풍선이 이야기 퀘스트 완료</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">하데스2</td><td class="g-genre">로그라이크</td><td class="g-time">20시간</td><td><span class="g-status playing">Y</span></td><td class="g-progress">지하 보스 클리어 후 지상 도전중</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">칼리스토 프로토콜</td><td class="g-genre">생존 어드벤처</td><td class="g-time">10시간</td><td><span class="g-status done">N</span></td><td class="g-progress">엔딩 클리어</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">데이브 더 다이버</td><td class="g-genre">경영 시뮬레이션</td><td class="g-time">7시간</td><td><span class="g-status done">N</span></td><td class="g-progress">용궁 스토리 입성 직후 중단</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">산나비</td><td class="g-genre">액션 플랫폼</td><td class="g-time">7시간</td><td><span class="g-status done">N</span></td><td class="g-progress">엔딩 클리어</td><td class="g-note">–</td></tr>
+        <tr><td class="g-name">레디 오어 낫</td><td class="g-genre">FPS</td><td class="g-time">4시간</td><td><span class="g-status done">N</span></td><td class="g-progress">베타 중 모든 맵 1회 클리어</td><td class="g-note">–</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="platform-group">
+    <div class="platform-head"><span class="platform-tag">MOBILE</span><h3>모바일</h3><span class="count">1개</span></div>
+    <table class="game-table">
+      <thead><tr><th>게임명</th><th>장르</th><th>플레이 시간(기간)</th><th>현재 플레이</th><th>플레이 정도</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td class="g-name">몬스터헌터 나우</td><td class="g-genre">–</td><td class="g-time">30시간</td><td><span class="g-status done">N</span></td><td class="g-progress">시즌1 이블조 토벌까지 완료 / 주력 무기 3종 세팅</td><td class="g-note">–</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  © 2026 신지운. 이 페이지는 직접 관리·업데이트됩니다.
+</footer>
+
+<script>
+(async function () {
+  const updatedEl = document.getElementById('live-updated');
+  const statusEl = document.getElementById('live-status');
+  const contentEl = document.getElementById('live-content');
+
+  function fmtDate(iso) {
+    if (!iso) return '';
+    const d = new Date(iso);
+    return d.toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+  }
+
+  function gameRow(g, hoursLabel, hoursValue) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="g-name">${g.name ?? '알 수 없는 게임'}</td>
+      <td class="g-time">${hoursLabel}</td>
+      <td class="g-progress">누적 ${g.hours_total ?? 0}시간</td>
+    `;
+    return tr;
+  }
+
+  try {
+    const res = await fetch('./steam-data.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('steam-data.json 없음');
+    const data = await res.json();
+
+    if (!data.updated_at) {
+      statusEl.textContent = 'GitHub Actions가 아직 한 번도 실행되지 않았어요. Actions 탭에서 "Update Steam playtime data"를 수동 실행하면 바로 채워집니다.';
+      updatedEl.textContent = '';
+      return;
+    }
+    if (!data.profile_public) {
+      statusEl.textContent = '스팀 데이터를 가져오지 못했어요. 스팀 개인정보 설정에서 "게임 세부정보"를 공개로 바꿔주세요.';
+      updatedEl.textContent = '';
+      return;
+    }
+
+    updatedEl.textContent = `마지막 갱신 ${fmtDate(data.updated_at)}`;
+    statusEl.style.display = 'none';
+    contentEl.style.display = 'block';
+
+    document.getElementById('live-total-hours').textContent = data.total_hours ?? '–';
+    document.getElementById('live-total-games').textContent = data.total_games ?? '–';
+    document.getElementById('live-now').textContent = data.currently_playing
+      ? `${data.currently_playing.name} 플레이 중`
+      : '오프라인 / 게임 중 아님';
+
+    const recentBody = document.getElementById('live-recent');
+    if (data.recent_games && data.recent_games.length) {
+      data.recent_games.forEach((g) => recentBody.appendChild(gameRow(g, `${g.hours_2weeks}시간 (2주)`)));
+    } else {
+      recentBody.innerHTML = '<tr><td class="g-progress">최근 2주간 플레이 기록이 없어요.</td></tr>';
+    }
+
+    const topBody = document.getElementById('live-top');
+    if (data.top_games && data.top_games.length) {
+      data.top_games.forEach((g) => topBody.appendChild(gameRow(g, `${g.hours_total}시간`)));
+    } else {
+      topBody.innerHTML = '<tr><td class="g-progress">데이터가 없어요.</td></tr>';
+    }
+  } catch (e) {
+    statusEl.textContent = '아직 steam-data.json이 없어요. GitHub Actions 설정을 먼저 완료해주세요.';
+    updatedEl.textContent = '';
+  }
+})();
+</script>
+</body>
+</html>

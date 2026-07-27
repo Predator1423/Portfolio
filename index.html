@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신지운 — Game Designer Portfolio</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14161c;
+    --panel: #1c1f28;
+    --panel-line: #2a2e3a;
+    --text: #e8e6e1;
+    --text-dim: #8b8f9c;
+    --amber: #e8a33d;
+    --teal: #4fb0ae;
+    --danger: #d9634f;
+    --radius: 3px;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Pretendard', -apple-system, sans-serif;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height:1.6;
+    background-image:
+      linear-gradient(var(--panel-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--panel-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-attachment: fixed;
+    background-position: -1px -1px;
+  }
+  ::selection{ background: var(--amber); color:#14161c; }
+  a{ color:inherit; text-decoration:none; }
+
+  .eyebrow{
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
+    color: var(--amber); text-transform: uppercase;
+    display:flex; align-items:center; gap:8px;
+  }
+  .eyebrow::before{ content:""; width:6px; height:6px; background: var(--amber); display:inline-block; }
+
+  nav{
+    position: sticky; top:0; z-index: 50;
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 18px 6vw;
+    background: rgba(20,22,28,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .logo{ font-family: var(--mono); font-weight:700; font-size:14px; letter-spacing: 0.05em; }
+  .logo span{ color: var(--amber); }
+  .nav-links{ display:flex; gap: 28px; font-family: var(--mono); font-size: 13px; color: var(--text-dim); }
+  .nav-links a:hover{ color: var(--text); }
+  .status{ display:flex; align-items:center; gap:8px; font-family: var(--mono); font-size: 12px; color: var(--teal); }
+  .dot{ width:7px; height:7px; border-radius:50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); animation: pulse 2s infinite; }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.4; } }
+
+  section{ padding: 100px 6vw; max-width: 1180px; margin: 0 auto; }
+
+  .hero{ padding-top: 110px; padding-bottom: 80px; }
+  .hero-panel{ border: 1px solid var(--panel-line); background: var(--panel); border-radius: var(--radius); padding: 48px; position: relative; overflow:hidden; }
+  .hero-panel::before{
+    content:"01 / SYSTEM.PROFILE"; position:absolute; top:16px; right:20px;
+    font-family: var(--mono); font-size:11px; color: var(--panel-line); letter-spacing:0.08em;
+  }
+  .hero h1{ font-family: var(--mono); font-size: clamp(32px, 5vw, 56px); font-weight: 700; letter-spacing: -0.01em; margin: 18px 0 8px; }
+  .hero h1 .role{ color: var(--amber); }
+  .hero-tagline{ font-size: 18px; color: var(--text-dim); max-width: 600px; margin-bottom: 14px; }
+  .hero-sub{ font-family: var(--mono); font-size: 12.5px; color: var(--teal); margin-bottom: 36px; }
+  .stat-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 18px; }
+  .stat{ border: 1px solid var(--panel-line); padding: 16px 18px; border-radius: var(--radius); background: rgba(255,255,255,0.01); }
+  .stat-label{ font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing:0.08em; margin-bottom:10px; display:flex; justify-content:space-between; }
+  .meter{ height:6px; background: var(--bg); border-radius: 3px; overflow:hidden; border:1px solid var(--panel-line); }
+  .meter-fill{ height:100%; background: linear-gradient(90deg, var(--amber), var(--teal)); }
+  .hero-cta{ margin-top: 36px; display:flex; gap:14px; flex-wrap: wrap; }
+  .btn{ font-family: var(--mono); font-size: 13px; padding: 12px 22px; border-radius: var(--radius); border: 1px solid var(--panel-line); transition: all .15s ease; letter-spacing:0.03em; }
+  .btn-primary{ background: var(--amber); color: #14161c; border-color: var(--amber); font-weight:700; }
+  .btn-primary:hover{ background: #f3b458; }
+  .btn-ghost:hover{ border-color: var(--text-dim); }
+
+  .section-head{ margin-bottom: 48px; }
+  .section-head h2{ font-family: var(--mono); font-size: 28px; margin-top: 10px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+  .section-head h2 small{ font-size: 14px; color: var(--text-dim); font-weight:400; }
+
+  .about-grid{ display:grid; grid-template-columns: 1.4fr 1fr; gap: 40px; }
+  .about-text p{ color: var(--text-dim); margin-bottom: 16px; font-size: 15.5px; }
+  .about-text strong{ color: var(--text); font-weight:600; }
+  .tool-panel{ border: 1px solid var(--panel-line); background: var(--panel); border-radius: var(--radius); padding: 24px; }
+  .tool-panel .stat-label{ margin-bottom: 14px; }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .tag-row:last-child{ margin-bottom:0; }
+  .tag{ font-family: var(--mono); font-size: 11.5px; padding: 5px 10px; border: 1px solid var(--panel-line); border-radius: var(--radius); color: var(--teal); }
+  .playlog{ margin-top: 6px; }
+  .playlog-row{ display:flex; justify-content:space-between; gap:10px; padding:7px 0; border-bottom: 1px dashed var(--panel-line); font-size: 12.5px; }
+  .playlog-row:last-child{ border-bottom:none; }
+  .playlog-game{ color: var(--text); }
+  .playlog-detail{ color: var(--text-dim); font-family: var(--mono); font-size: 11px; text-align:right; }
+
+  /* PROJECTS grouped by game */
+  .game-group{ margin-bottom: 56px; }
+  .game-group:last-child{ margin-bottom:0; }
+  .game-group-head{
+    display:flex; align-items:center; gap: 14px; margin-bottom: 20px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--panel-line);
+  }
+  .game-tag{
+    font-family: var(--mono); font-size: 11px; letter-spacing:0.06em;
+    color: var(--bg); background: var(--teal); padding: 4px 10px; border-radius: var(--radius);
+    font-weight:700; white-space:nowrap;
+  }
+  .game-group-head h3{ font-size: 20px; font-weight:600; }
+  .game-group-head span.count{ font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left:auto; }
+
+  .project-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 22px; }
+  .card{ border: 1px solid var(--panel-line); background: var(--panel); border-radius: var(--radius); overflow: hidden; transition: transform .18s ease, border-color .18s ease; }
+  .card:hover{ transform: translateY(-4px); border-color: var(--amber); }
+  .card-thumb{
+    height: 90px;
+    background: repeating-linear-gradient(45deg, #20232d, #20232d 10px, #1c1f28 10px, #1c1f28 20px);
+    display:flex; align-items:center; padding: 0 16px;
+    font-family: var(--mono); color: var(--text-dim); font-size:11px;
+    border-bottom: 1px solid var(--panel-line);
+    position:relative; justify-content: space-between;
+  }
+  .card-thumb .stage{ font-size:10px; padding:3px 8px; border-radius:3px; background: rgba(20,22,28,0.85); color: var(--amber); border:1px solid var(--panel-line); }
+  .card-body{ padding: 20px; }
+  .card-body .cat{ font-family: var(--mono); font-size:11px; color: var(--text-dim); letter-spacing:0.06em; margin-bottom:8px; }
+  .card-body h3{ font-size: 18px; margin-bottom: 8px; }
+  .card-body p{ font-size: 13.5px; color: var(--text-dim); margin-bottom: 12px; }
+  .card-body ul{ list-style: none; margin-bottom: 14px; }
+  .card-body ul li{ font-size: 12.5px; color: var(--text-dim); padding-left: 14px; position: relative; margin-bottom: 5px; }
+  .card-body ul li::before{ content:"–"; position:absolute; left:0; color: var(--amber); }
+  .card-link{ font-family: var(--mono); font-size: 12px; color: var(--teal); display:inline-flex; align-items:center; gap:4px; }
+  .card-link:hover{ color: var(--amber); }
+
+  /* CAREER TIMELINE */
+  .timeline{ border-left: 1px solid var(--panel-line); padding-left: 32px; display:flex; flex-direction:column; gap: 36px; }
+  .t-item{ position:relative; }
+  .t-item::before{ content:""; position:absolute; left:-37px; top:4px; width:11px; height:11px; border-radius:50%; background: var(--bg); border: 2px solid var(--amber); }
+  .t-period{ font-family: var(--mono); font-size:12px; color: var(--amber); margin-bottom:6px; }
+  .t-item h3{ font-size:19px; margin-bottom:4px; }
+  .t-item .t-role{ font-size:13.5px; color: var(--teal); font-family: var(--mono); margin-bottom:10px; }
+  .t-item p{ color: var(--text-dim); font-size:14.5px; max-width:640px; }
+
+  .contact-panel{ border: 1px solid var(--panel-line); background: var(--panel); border-radius: var(--radius); padding: 44px; }
+  .cfg-row{ display:flex; justify-content:space-between; padding: 16px 0; border-bottom: 1px solid var(--panel-line); font-family: var(--mono); font-size: 14px; flex-wrap: wrap; gap:6px; }
+  .cfg-row:last-child{ border-bottom:none; }
+  .cfg-key{ color: var(--text-dim); }
+  .cfg-val{ color: var(--text); }
+  .cfg-val a:hover{ color: var(--amber); }
+  .contact-note{ margin-top: 18px; font-size: 12.5px; color: var(--text-dim); }
+
+  footer{ padding: 30px 6vw; text-align:center; font-family: var(--mono); font-size: 12px; color: var(--text-dim); border-top: 1px solid var(--panel-line); }
+
+  @media (max-width: 760px){
+    .about-grid{ grid-template-columns: 1fr; }
+    .nav-links{ display:none; }
+    section{ padding: 70px 6vw; }
+    .hero-panel{ padding: 28px; }
+  }
+  @media (prefers-reduced-motion: reduce){ *{ animation: none !important; transition: none !important; } }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--amber); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">JIWOON.DEV<span>_</span></div>
+  <div class="nav-links">
+    <a href="#about">ABOUT</a>
+    <a href="#work">WORK</a>
+    <a href="#career">CAREER</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+  <div class="status"><span class="dot"></span>지원가능</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-panel">
+    <div class="eyebrow">PROFILE.CFG</div>
+    <h1>신지운<br><span class="role">// 게임기획자</span></h1>
+    <p class="hero-tagline">캐릭터 하나에 세계관, 전투 시스템, 대사까지 끝까지 파고드는 것을 좋아합니다. 직접 플레이하며 쌓은 다양한 장르 경험을 기획서의 디테일로 옮깁니다.</p>
+    <div class="hero-sub">지원부문 : 게임기획 / 퀘스트기획　·　강원대학교 컴퓨터공학과 졸업</div>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="stat-label"><span>캐릭터/스토리 기획</span><span>90</span></div>
+        <div class="meter"><div class="meter-fill" style="width:90%"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label"><span>역기획 · 데이터 분석</span><span>88</span></div>
+        <div class="meter"><div class="meter-fill" style="width:88%"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label"><span>시스템/밸런스 기획</span><span>75</span></div>
+        <div class="meter"><div class="meter-fill" style="width:75%"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label"><span>문서화 · 커뮤니케이션</span><span>92</span></div>
+        <div class="meter"><div class="meter-fill" style="width:92%"></div></div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-primary">프로젝트 보기</a>
+      <a href="#contact" class="btn btn-ghost">연락하기</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-head">
+    <div class="eyebrow">02 / ABOUT</div>
+    <h2>소개 <small>who_am_i.md</small></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>어렸을 때부터 떠오르는 아이디어를 메모하고 이야기를 만드는 것을 좋아했습니다. 대학교 졸업작품으로 <strong>언리얼엔진5 게임 데모 제작</strong>에 직접 도전하며, 상상하던 것이 현실이 되는 과정에서 게임 기획이라는 꿈을 확고히 하게 되었습니다.</p>
+      <p><strong>컴퓨터공학과 졸업</strong>생으로 엔진과 개발 프로세스에 대한 이해를 갖추고 있어, 타 부서와의 커뮤니케이션 격차를 줄이는 데 강점이 있습니다. CGV VIP 3년 이상 유지, OTT 3개 이상 구독 등 영화·애니메이션을 폭넓게 소비하며 기획 문서에 다양한 레퍼런스를 녹여내는 것을 즐깁니다.</p>
+      <p>하나를 시작하면 끝까지 파고드는 성향으로, 로스트아크 보스 패턴을 프레임 단위로 뜯어보거나 신규 캐릭터의 지역 도착 대사까지 전부 채워 넣는 등 <strong>디테일로 완성도를 쌓는 기획자</strong>를 지향합니다.</p>
+    </div>
+    <div class="tool-panel">
+      <div class="stat-label"><span>TOOLS & SKILLS</span></div>
+      <div class="tag-row">
+        <span class="tag">Unreal Engine 5 (Blueprint)</span>
+        <span class="tag">Unity</span>
+        <span class="tag">MS Word / PPT</span>
+        <span class="tag">Premiere Pro</span>
+        <span class="tag">After Effects</span>
+      </div>
+      <div class="stat-label"><span>PLAYER LOG — 깊이 판 게임</span></div>
+      <div class="playlog">
+        <div class="playlog-row"><span class="playlog-game">로스트아크</span><span class="playlog-detail">21.03~현재 · 카멘 이클립스</span></div>
+        <div class="playlog-row"><span class="playlog-game">몬스터헌터 월드/아이스본</span><span class="playlog-detail">476h · MR246</span></div>
+        <div class="playlog-row"><span class="playlog-game">엘든링 / 다크소울3</span><span class="playlog-detail">전 엔딩 · 다회차</span></div>
+        <div class="playlog-row"><span class="playlog-game">오버워치 (1/2)</span><span class="playlog-detail">GM · 다이아</span></div>
+        <div class="playlog-row"><span class="playlog-game">이터널리턴</span><span class="playlog-detail">571h · 플레티넘</span></div>
+      </div>
+      <a class="card-link" href="playlog.html" style="display:inline-block; margin-top:16px;">플레이 이력 전체 보기 →</a>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="section-head">
+    <div class="eyebrow">03 / PROJECT_LOG</div>
+    <h2>프로젝트 <small>게임별로 정리한 기획서와 분석 문서</small></h2>
+  </div>
+
+  <!-- LOST ARK -->
+  <div class="game-group">
+    <div class="game-group-head">
+      <span class="game-tag">LOST ARK</span>
+      <h3>로스트아크</h3>
+      <span class="count">2건</span>
+    </div>
+    <div class="project-grid">
+      <div class="card">
+        <div class="card-thumb"><span>2025.02</span><span class="stage">신규 캐릭터 기획</span></div>
+        <div class="card-body">
+          <div class="cat">클래스 기획서 · 발키리</div>
+          <h3>로스트아크 신규 캐릭터 기획서</h3>
+          <p>검술과 선조의 영혼 소환을 오가는 근접 딜러 클래스. 패리를 반사/흡수 두 갈래로 설계해 트라이포드 선택의 폭을 넓혔습니다.</p>
+          <ul>
+            <li>아이덴티티 시스템: 영혼구슬 3개 ↔ 검술 게이지 강화 이원화</li>
+            <li>스킬별 트라이포드 3종 x 세부 옵션 설계</li>
+            <li>기본 모션·이동기까지 애니메이션 컨셉 정의</li>
+          </ul>
+          <span class="card-link">기획서 원본 →</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb"><span>가디언 역기획</span><span class="stage">69p</span></div>
+        <div class="card-body">
+          <div class="cat">역기획서 · 하누마탄</div>
+          <h3>로스트아크 가디언 역기획서</h3>
+          <p>가디언 하누마탄의 페이즈·패턴·판정 범위를 전수 분석하고, 토벌 지역의 이동 동선 문제까지 짚어 개선안을 제안했습니다.</p>
+          <ul>
+            <li>공통/각반/투구/권갑/광폭화 패턴 전체 판정 수치화</li>
+            <li>토벌 지역 이동시간 20% 낭비 문제 분석 → 신규 지역 설계안</li>
+            <li>벽 방향 패턴 사용으로 카운터 불가 현상 등 밸런스 개선 제안</li>
+          </ul>
+          <a class="card-link" href="https://drive.google.com/drive/folders/1JC6k5g16W_QuBpI7jO_Ygdb5QInWo2Y9" target="_blank" rel="noopener">기획서 원본 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETERNAL RETURN -->
+  <div class="game-group">
+    <div class="game-group-head">
+      <span class="game-tag">ETERNAL RETURN</span>
+      <h3>이터널 리턴</h3>
+      <span class="count">1건</span>
+    </div>
+    <div class="project-grid">
+      <div class="card">
+        <div class="card-thumb"><span>신규 캐릭터 기획</span><span class="stage">서포터</span></div>
+        <div class="card-body">
+          <div class="cat">신규 캐릭터 기획서 · 표선아</div>
+          <h3>이터널리턴 신규 캐릭터 기획서</h3>
+          <p>킬·데미지가 아닌 아군 보조와 진영 붕괴로 캐리하는 CC 서포터. 스킬 수치, 스탯 성장치는 물론 상황별 대사까지 전부 작성했습니다.</p>
+          <ul>
+            <li>패시브(VF정전기)로 스킬 강화 분기하는 자원 시스템</li>
+            <li>Q/W/E/R 스킬 레벨별 수치표, 벡터 타겟팅 시스템 설계</li>
+            <li>죽음의 수용 5단계를 반영한 처치 대사, 대사 100줄+ 작성</li>
+          </ul>
+          <a class="card-link" href="https://docs.google.com/presentation/d/14U2rfInuu3yyJDDQAkvfTKT7QFlnGo4G/edit?usp=drive_link" target="_blank" rel="noopener">기획서 원본 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERWATCH 2 -->
+  <div class="game-group">
+    <div class="game-group-head">
+      <span class="game-tag">OVERWATCH 2</span>
+      <h3>오버워치 2</h3>
+      <span class="count">1건</span>
+    </div>
+    <div class="project-grid">
+      <div class="card">
+        <div class="card-thumb"><span>2024.10</span><span class="stage">분석/개선 제안</span></div>
+        <div class="card-body">
+          <div class="cat">게임 분석 및 개선 제안서</div>
+          <h3>오버워치2 분석 및 개선 제안</h3>
+          <p>히어로 슈터 장르의 재미 요소와 메타 변화를 분석하고, 신규·기존 유저 리텐션을 위한 시스템 개선안을 제시했습니다.</p>
+          <ul>
+            <li>일리아리·마우가·벤처·주노 출시 이후 픽률 메타 변화 분석</li>
+            <li>맵 로테이션 시스템, 전장 리소스 재활용 등 유저 이탈 방지안</li>
+            <li>길드 시스템, 멘토링 시스템 등 신규 유저 유입 방안 제안</li>
+          </ul>
+          <span class="card-link">분석서 원본 →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERSONAL PROJECT -->
+  <div class="game-group">
+    <div class="game-group-head">
+      <span class="game-tag">PERSONAL</span>
+      <h3>개인 프로젝트 · Unreal Engine 5</h3>
+      <span class="count">1건</span>
+    </div>
+    <div class="project-grid">
+      <div class="card">
+        <div class="card-thumb"><span>졸업작품</span><span class="stage">UE5</span></div>
+        <div class="card-body">
+          <div class="cat">게임 데모 제작 포스트모템</div>
+          <h3>졸업작품 게임 데모 & 트레일러</h3>
+          <p>언리얼엔진5로 게임 데모와 트레일러 영상을 직접 제작. 기획-개발 간극을 몸으로 부딪히며 배운 과정을 정리한 포스트모템입니다.</p>
+          <ul>
+            <li>블루프린트로 메인메뉴 UI, HUD, 상호작용 오브젝트 제작</li>
+            <li>나나이트·파티클·텍스처를 활용한 레벨 및 크리쳐 제작</li>
+            <li>시퀀서로 트레일러 촬영, 프리미어 프로/AE로 편집</li>
+          </ul>
+          <a class="card-link" href="https://www.youtube.com/@6bench903" target="_blank" rel="noopener">플레이 영상 보러가기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="section-head">
+    <div class="eyebrow">04 / CAREER_PATH</div>
+    <h2>이력 <small>history.log</small></h2>
+  </div>
+  <div class="timeline">
+    <div class="t-item">
+      <div class="t-period">2016.03 — 2023.02</div>
+      <h3>강원대학교 공과대학</h3>
+      <div class="t-role">컴퓨터공학과 졸업</div>
+      <p>졸업작품으로 언리얼엔진5 게임 데모와 트레일러를 직접 제작. 이후 유니티·언리얼 학원 수강으로 그래픽·엔진 지식을 보강해, 기획자로서 타 직군과의 소통 기반을 다졌습니다.</p>
+    </div>
+    <div class="t-item">
+      <div class="t-period">진행 중</div>
+      <h3>개인 기획 포트폴리오</h3>
+      <div class="t-role">신규 캐릭터 기획 · 역기획 · 게임 분석</div>
+      <p>로스트아크·이터널리턴 신규 캐릭터 기획서, 하누마탄 가디언 역기획서, 오버워치2 분석 제안서를 순차적으로 작성하며 기획 역량을 쌓고 있습니다.</p>
+    </div>
+    <div class="t-item">
+      <div class="t-period">경력</div>
+      <h3>경기창조혁신센터 창업 프로그램</h3>
+      <div class="t-role">도전 경험</div>
+      <p>게임 제작 아이템으로 창업 프로그램에 지원, 최종 선정되지는 못했지만 사람을 설득하고 함께 꿈을 만들어가는 과정에서 진로에 대한 확신을 얻었습니다.</p>
+    </div>
+    <div class="t-item">
+      <div class="t-period">2012.03 — 2016.02</div>
+      <h3>운중고등학교</h3>
+      <div class="t-role">졸업 (경기도 성남시)</div>
+      <p></p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-head">
+    <div class="eyebrow">05 / CONTACT.cfg</div>
+    <h2>연락처</h2>
+  </div>
+  <div class="contact-panel">
+    <div class="cfg-row"><span class="cfg-key">email</span><span class="cfg-val"><a href="mailto:lion961219@gmail.com">lion961219@gmail.com</a></span></div>
+    <div class="cfg-row"><span class="cfg-key">phone</span><span class="cfg-val"><a href="tel:01020427804">010-2042-7804</a></span></div>
+    <div class="cfg-row"><span class="cfg-key">youtube</span><span class="cfg-val"><a href="https://www.youtube.com/@6bench903" target="_blank" rel="noopener">@6bench903 — 졸업작품 게임 데모 영상 →</a></span></div>
+    <div class="cfg-row"><span class="cfg-key">지원부문</span><span class="cfg-val">게임기획 / 퀘스트 기획</span></div>
+  </div>
+  <p class="contact-note">* 이력서 원본의 자택 주소·생년월일은 공개 홈페이지 특성상 노출하지 않았습니다. 필요하시면 이메일로 이력서 파일을 별도로 첨부해 드리는 걸 추천드려요.</p>
+</section>
+
+<footer>
+  © 2026 신지운. 이 페이지는 직접 관리·업데이트됩니다.
+</footer>
+
+</body>
+</html>
