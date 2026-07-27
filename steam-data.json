@@ -1,10 +1,81 @@
 {
-  "updated_at": null,
-  "profile_public": false,
-  "total_games": 0,
-  "total_hours": 0,
+  "updated_at": "2026-07-27T14:11:39.770Z",
+  "profile_public": true,
+  "total_games": 148,
+  "total_hours": 4393.7,
   "currently_playing": null,
-  "persona_state": null,
-  "top_games": [],
-  "recent_games": []
+  "persona_state": 1,
+  "top_games": [
+    {
+      "appid": 1049590,
+      "name": "Eternal Return",
+      "hours_total": 580.6,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1049590/1d458721c8c4993c111038f72b07b42b66fc4efe.jpg"
+    },
+    {
+      "appid": 582010,
+      "name": "Monster Hunter: World",
+      "hours_total": 476.5,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/582010/6ec147f2d423f435e15eb79b3d82f771913de634.jpg"
+    },
+    {
+      "appid": 1086940,
+      "name": "Baldur's Gate 3",
+      "hours_total": 208.1,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1086940/d866cae7ea1e471fdbc206287111f1b642373bd9.jpg"
+    },
+    {
+      "appid": 578080,
+      "name": "PUBG: BATTLEGROUNDS",
+      "hours_total": 200.4,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/578080/609f27278aa70697c13bf99f32c5a0248c381f9d.jpg"
+    },
+    {
+      "appid": 1174180,
+      "name": "Red Dead Redemption 2",
+      "hours_total": 187.1,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1174180/5106abd9c1187a97f23295a0ba9470c94804ec6c.jpg"
+    },
+    {
+      "appid": 389730,
+      "name": "TEKKEN 7",
+      "hours_total": 186.3,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/389730/fe025a6f9a666b3839fe0a2591542dc98844643f.jpg"
+    },
+    {
+      "appid": 1778820,
+      "name": "TEKKEN 8",
+      "hours_total": 174.5,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1778820/379f0bd7dcf0b6b20bd9041ddfaba05fdaa77a6e.jpg"
+    },
+    {
+      "appid": 374320,
+      "name": "DARK SOULS™ III",
+      "hours_total": 164,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/374320/7abe1a33129c20cf10d2c74128bbd657a2a2c806.jpg"
+    }
+  ],
+  "recent_games": [
+    {
+      "appid": 2868840,
+      "name": "Slay the Spire 2",
+      "hours_2weeks": 3.2,
+      "hours_total": 134.1,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/2868840/f92b09dab91f1d1738f72fe0dd9be18dcc2901f9.jpg"
+    },
+    {
+      "appid": 236870,
+      "name": "HITMAN™",
+      "hours_2weeks": 1.1,
+      "hours_total": 1.1,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/236870/a4c559b6a3a7706d2f6c44a84e1daa8532bee741.jpg"
+    },
+    {
+      "appid": 1774580,
+      "name": "STAR WARS Jedi: Survivor™",
+      "hours_2weeks": 0.1,
+      "hours_total": 0.9,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1774580/25578ffb2c6070c5d4e6569624efaadb8a0f5538.jpg"
+    }
+  ]
 }
