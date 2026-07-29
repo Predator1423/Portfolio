@@ -1,10 +1,13 @@
 {
-  "updated_at": "2026-07-29T16:26:52.423Z",
+  "updated_at": "2026-07-29T19:35:16.197Z",
   "profile_public": true,
   "total_games": 148,
   "total_hours": 4393.7,
-  "currently_playing": null,
-  "persona_state": 0,
+  "currently_playing": {
+    "name": "Hearts of Iron IV",
+    "appid": "394360"
+  },
+  "persona_state": 1,
   "top_games": [
     {
       "appid": 1049590,
@@ -76,13 +79,6 @@
       "hours_2weeks": 1.1,
       "hours_total": 1.1,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/236870/a4c559b6a3a7706d2f6c44a84e1daa8532bee741.jpg"
-    },
-    {
-      "appid": 1774580,
-      "name": "STAR WARS Jedi: Survivor™",
-      "hours_2weeks": 0.1,
-      "hours_total": 0.9,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1774580/25578ffb2c6070c5d4e6569624efaadb8a0f5538.jpg"
     }
   ]
 }
