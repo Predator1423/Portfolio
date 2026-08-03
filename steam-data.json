@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-03T14:57:36.581Z",
+  "updated_at": "2026-08-03T17:16:46.530Z",
   "profile_public": true,
   "total_games": 148,
   "total_hours": 4393.7,
@@ -64,18 +64,18 @@
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     },
     {
-      "appid": 2868840,
-      "name": "Slay the Spire 2",
-      "hours_2weeks": 1.5,
-      "hours_total": 134.1,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/2868840/f92b09dab91f1d1738f72fe0dd9be18dcc2901f9.jpg"
-    },
-    {
       "appid": 236870,
       "name": "HITMAN™",
       "hours_2weeks": 1.1,
       "hours_total": 1.1,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/236870/a4c559b6a3a7706d2f6c44a84e1daa8532bee741.jpg"
+    },
+    {
+      "appid": 2868840,
+      "name": "Slay the Spire 2",
+      "hours_2weeks": 0.7,
+      "hours_total": 134.1,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/2868840/f92b09dab91f1d1738f72fe0dd9be18dcc2901f9.jpg"
     }
   ]
 }
