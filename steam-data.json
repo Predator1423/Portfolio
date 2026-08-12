@@ -1,10 +1,13 @@
 {
-  "updated_at": "2026-08-12T13:26:35.696Z",
+  "updated_at": "2026-08-12T16:03:24.626Z",
   "profile_public": true,
   "total_games": 148,
   "total_hours": 4393.7,
-  "currently_playing": null,
-  "persona_state": 1,
+  "currently_playing": {
+    "name": "Hearts of Iron IV",
+    "appid": "394360"
+  },
+  "persona_state": 3,
   "top_games": [
     {
       "appid": 1049590,
