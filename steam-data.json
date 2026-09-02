@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-02T16:27:02.647Z",
+  "updated_at": "2026-09-02T20:55:21.259Z",
   "profile_public": true,
   "total_games": 148,
   "total_hours": 4393.7,
@@ -59,16 +59,16 @@
     {
       "appid": 394360,
       "name": "Hearts of Iron IV",
-      "hours_2weeks": 16.7,
-      "hours_total": 157.4,
+      "hours_2weeks": 14.9,
+      "hours_total": 158.1,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     },
     {
-      "appid": 3114680,
-      "name": "War Of Warship",
-      "hours_2weeks": 0,
-      "hours_total": 0,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/3114680/3d1334da252a0f81a70547b3a134512d2562b96d.jpg"
+      "appid": 281990,
+      "name": "Stellaris",
+      "hours_2weeks": 0.1,
+      "hours_total": 0.9,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/281990/cb4a03deab1e34ed2a5cbbdf419c66bb6459625f.jpg"
     }
   ]
 }
