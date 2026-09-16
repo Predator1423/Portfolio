@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-09-16T16:40:40.428Z",
+  "updated_at": "2026-09-16T21:11:39.345Z",
   "profile_public": true,
   "total_games": 148,
   "total_hours": 4393.7,
   "currently_playing": null,
-  "persona_state": 1,
+  "persona_state": 0,
   "top_games": [
     {
       "appid": 1049590,
@@ -59,16 +59,9 @@
     {
       "appid": 394360,
       "name": "Hearts of Iron IV",
-      "hours_2weeks": 8.4,
+      "hours_2weeks": 7.8,
       "hours_total": 165.9,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
-    },
-    {
-      "appid": 281990,
-      "name": "Stellaris",
-      "hours_2weeks": 0.1,
-      "hours_total": 0.9,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/281990/cb4a03deab1e34ed2a5cbbdf419c66bb6459625f.jpg"
     }
   ]
 }
