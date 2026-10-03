@@ -1,9 +1,12 @@
 {
-  "updated_at": "2026-10-03T16:06:38.479Z",
+  "updated_at": "2026-10-03T20:56:25.407Z",
   "profile_public": true,
-  "total_games": 148,
-  "total_hours": 4396.7,
-  "currently_playing": null,
+  "total_games": 149,
+  "total_hours": 4578.1,
+  "currently_playing": {
+    "name": "Hearts of Iron IV",
+    "appid": "394360"
+  },
   "persona_state": 1,
   "top_games": [
     {
@@ -43,24 +46,24 @@
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/389730/fe025a6f9a666b3839fe0a2591542dc98844643f.jpg"
     },
     {
+      "appid": 394360,
+      "name": "Hearts of Iron IV",
+      "hours_total": 181.4,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
+    },
+    {
       "appid": 1778820,
       "name": "TEKKEN 8",
       "hours_total": 174.5,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1778820/379f0bd7dcf0b6b20bd9041ddfaba05fdaa77a6e.jpg"
-    },
-    {
-      "appid": 374320,
-      "name": "DARK SOULS™ III",
-      "hours_total": 164,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/374320/7abe1a33129c20cf10d2c74128bbd657a2a2c806.jpg"
     }
   ],
   "recent_games": [
     {
       "appid": 394360,
       "name": "Hearts of Iron IV",
-      "hours_2weeks": 12.1,
-      "hours_total": 177.9,
+      "hours_2weeks": 15.6,
+      "hours_total": 181.4,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     },
     {
