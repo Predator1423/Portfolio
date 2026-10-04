@@ -1,12 +1,9 @@
 {
-  "updated_at": "2026-10-04T12:11:41.124Z",
+  "updated_at": "2026-10-04T18:35:24.890Z",
   "profile_public": true,
   "total_games": 149,
-  "total_hours": 4580.5,
-  "currently_playing": {
-    "name": "Hearts of Iron IV",
-    "appid": "394360"
-  },
+  "total_hours": 4583,
+  "currently_playing": null,
   "persona_state": 1,
   "top_games": [
     {
@@ -40,16 +37,16 @@
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1174180/5106abd9c1187a97f23295a0ba9470c94804ec6c.jpg"
     },
     {
+      "appid": 394360,
+      "name": "Hearts of Iron IV",
+      "hours_total": 186.3,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
+    },
+    {
       "appid": 389730,
       "name": "TEKKEN 7",
       "hours_total": 186.3,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/389730/fe025a6f9a666b3839fe0a2591542dc98844643f.jpg"
-    },
-    {
-      "appid": 394360,
-      "name": "Hearts of Iron IV",
-      "hours_total": 183.8,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     },
     {
       "appid": 1778820,
@@ -62,8 +59,8 @@
     {
       "appid": 394360,
       "name": "Hearts of Iron IV",
-      "hours_2weeks": 18,
-      "hours_total": 183.8,
+      "hours_2weeks": 18.2,
+      "hours_total": 186.3,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     },
     {
