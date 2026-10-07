@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-10-07T13:08:17.560Z",
+  "updated_at": "2026-10-07T20:32:26.245Z",
   "profile_public": true,
   "total_games": 149,
   "total_hours": 4583,
   "currently_playing": null,
-  "persona_state": 1,
+  "persona_state": 0,
   "top_games": [
     {
       "appid": 1049590,
@@ -69,13 +69,6 @@
       "hours_2weeks": 2.5,
       "hours_total": 97.6,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/553850/5236dcc5d02b1f7aa199eef56253d20be87baef3.jpg"
-    },
-    {
-      "appid": 294100,
-      "name": "RimWorld",
-      "hours_2weeks": 0.5,
-      "hours_total": 130.6,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/294100/addbe3b704b267060b4d5d7649cfb292de61bd70.jpg"
     }
   ]
 }
