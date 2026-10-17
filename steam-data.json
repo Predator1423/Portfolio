@@ -1,9 +1,12 @@
 {
-  "updated_at": "2026-10-17T10:30:15.237Z",
+  "updated_at": "2026-10-17T15:24:28.418Z",
   "profile_public": true,
   "total_games": 151,
-  "total_hours": 4587.2,
-  "currently_playing": null,
+  "total_hours": 4589.3,
+  "currently_playing": {
+    "name": "BOMBANANA!",
+    "appid": "4656000"
+  },
   "persona_state": 1,
   "top_games": [
     {
@@ -33,7 +36,7 @@
     {
       "appid": 394360,
       "name": "Hearts of Iron IV",
-      "hours_total": 188,
+      "hours_total": 188.1,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     },
     {
@@ -59,8 +62,8 @@
     {
       "appid": 394360,
       "name": "Hearts of Iron IV",
-      "hours_2weeks": 10.1,
-      "hours_total": 188,
+      "hours_2weeks": 10.2,
+      "hours_total": 188.1,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     },
     {
@@ -69,6 +72,13 @@
       "hours_2weeks": 2.5,
       "hours_total": 2.5,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1142710/6db17b5e504c0850a9a60edac9152de019d0d3a8.jpg"
+    },
+    {
+      "appid": 4656000,
+      "name": "BOMBANANA!",
+      "hours_2weeks": 2,
+      "hours_total": 2,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/4656000/baf7df3f7ee5a54c02a4ee4092b13c84f36e769f.jpg"
     }
   ]
 }
