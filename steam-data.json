@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-22T11:36:05.656Z",
+  "updated_at": "2026-10-22T17:01:24.457Z",
   "profile_public": true,
   "total_games": 151,
-  "total_hours": 4591.7,
+  "total_hours": 4593.4,
   "currently_playing": null,
   "persona_state": 1,
   "top_games": [
@@ -33,7 +33,7 @@
     {
       "appid": 394360,
       "name": "Hearts of Iron IV",
-      "hours_total": 188.1,
+      "hours_total": 189.8,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     },
     {
@@ -57,6 +57,13 @@
   ],
   "recent_games": [
     {
+      "appid": 394360,
+      "name": "Hearts of Iron IV",
+      "hours_2weeks": 3.4,
+      "hours_total": 189.8,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
+    },
+    {
       "appid": 1142710,
       "name": "Total War: WARHAMMER III",
       "hours_2weeks": 2.5,
@@ -76,13 +83,6 @@
       "hours_2weeks": 2,
       "hours_total": 99.6,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/553850/5236dcc5d02b1f7aa199eef56253d20be87baef3.jpg"
-    },
-    {
-      "appid": 394360,
-      "name": "Hearts of Iron IV",
-      "hours_2weeks": 1.8,
-      "hours_total": 188.1,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     }
   ]
 }
