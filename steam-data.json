@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-10-28T12:36:48.079Z",
+  "updated_at": "2026-10-28T20:11:08.681Z",
   "profile_public": true,
   "total_games": 151,
-  "total_hours": 4596.8,
+  "total_hours": 4598.8,
   "currently_playing": {
     "name": "Total War: WARHAMMER III",
     "appid": "1142710"
   },
-  "persona_state": 3,
+  "persona_state": 1,
   "top_games": [
     {
       "appid": 1049590,
@@ -62,16 +62,16 @@
     {
       "appid": 1142710,
       "name": "Total War: WARHAMMER III",
-      "hours_2weeks": 5.8,
-      "hours_total": 5.8,
+      "hours_2weeks": 6.6,
+      "hours_total": 6.6,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1142710/6db17b5e504c0850a9a60edac9152de019d0d3a8.jpg"
     },
     {
-      "appid": 394360,
-      "name": "Hearts of Iron IV",
+      "appid": 553850,
+      "name": "HELLDIVERS™ 2",
       "hours_2weeks": 3.1,
-      "hours_total": 189.8,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
+      "hours_total": 100.7,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/553850/5236dcc5d02b1f7aa199eef56253d20be87baef3.jpg"
     },
     {
       "appid": 4656000,
@@ -81,11 +81,11 @@
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/4656000/baf7df3f7ee5a54c02a4ee4092b13c84f36e769f.jpg"
     },
     {
-      "appid": 553850,
-      "name": "HELLDIVERS™ 2",
-      "hours_2weeks": 2,
-      "hours_total": 99.6,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/553850/5236dcc5d02b1f7aa199eef56253d20be87baef3.jpg"
+      "appid": 394360,
+      "name": "Hearts of Iron IV",
+      "hours_2weeks": 1.7,
+      "hours_total": 189.8,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     },
     {
       "appid": 431960,
@@ -93,6 +93,13 @@
       "hours_2weeks": 0.2,
       "hours_total": 106,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/431960/72edaed9d748c6cf7397ffb1c83f0b837b9ebd9d.jpg"
+    },
+    {
+      "appid": 993090,
+      "name": "Lossless Scaling",
+      "hours_2weeks": 0,
+      "hours_total": 2.6,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/993090/42900f430ed7828d2dfa25f07ac02e3de96bc520.jpg"
     }
   ]
 }
