@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-10-31T12:06:40.798Z",
+  "updated_at": "2026-10-31T19:12:30.521Z",
   "profile_public": true,
   "total_games": 151,
   "total_hours": 4622,
   "currently_playing": null,
-  "persona_state": 3,
+  "persona_state": 1,
   "top_games": [
     {
       "appid": 1049590,
@@ -69,13 +69,6 @@
       "hours_2weeks": 3.1,
       "hours_total": 100.7,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/553850/5236dcc5d02b1f7aa199eef56253d20be87baef3.jpg"
-    },
-    {
-      "appid": 4656000,
-      "name": "BOMBANANA!",
-      "hours_2weeks": 2.4,
-      "hours_total": 2.4,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/4656000/baf7df3f7ee5a54c02a4ee4092b13c84f36e769f.jpg"
     },
     {
       "appid": 394360,
