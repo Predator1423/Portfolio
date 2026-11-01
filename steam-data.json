@@ -1,12 +1,9 @@
 {
-  "updated_at": "2026-11-01T13:07:07.865Z",
+  "updated_at": "2026-11-01T19:28:54.592Z",
   "profile_public": true,
   "total_games": 151,
-  "total_hours": 4624.4,
-  "currently_playing": {
-    "name": "HELLDIVERS™ 2",
-    "appid": "553850"
-  },
+  "total_hours": 4626.7,
+  "currently_playing": null,
   "persona_state": 1,
   "top_games": [
     {
@@ -69,8 +66,8 @@
     {
       "appid": 553850,
       "name": "HELLDIVERS™ 2",
-      "hours_2weeks": 4.1,
-      "hours_total": 101.7,
+      "hours_2weeks": 6.4,
+      "hours_total": 104,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/553850/5236dcc5d02b1f7aa199eef56253d20be87baef3.jpg"
     },
     {
