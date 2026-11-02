@@ -1,13 +1,10 @@
 {
-  "updated_at": "2026-11-02T00:30:04.763Z",
+  "updated_at": "2026-11-02T10:51:23.314Z",
   "profile_public": true,
   "total_games": 151,
-  "total_hours": 4630.7,
-  "currently_playing": {
-    "name": "Total War: WARHAMMER III",
-    "appid": "1142710"
-  },
-  "persona_state": 4,
+  "total_hours": 4641.2,
+  "currently_playing": null,
+  "persona_state": 1,
   "top_games": [
     {
       "appid": 1049590,
@@ -62,14 +59,14 @@
     {
       "appid": 1142710,
       "name": "Total War: WARHAMMER III",
-      "hours_2weeks": 32.7,
-      "hours_total": 35.2,
+      "hours_2weeks": 43.2,
+      "hours_total": 45.7,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1142710/6db17b5e504c0850a9a60edac9152de019d0d3a8.jpg"
     },
     {
       "appid": 553850,
       "name": "HELLDIVERS™ 2",
-      "hours_2weeks": 6.4,
+      "hours_2weeks": 4.4,
       "hours_total": 104,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/553850/5236dcc5d02b1f7aa199eef56253d20be87baef3.jpg"
     },
