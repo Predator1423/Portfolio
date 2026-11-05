@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-05T06:21:10.125Z",
+  "updated_at": "2026-11-05T17:16:37.685Z",
   "profile_public": true,
   "total_games": 151,
   "total_hours": 4641.2,
@@ -69,13 +69,6 @@
       "hours_2weeks": 4.4,
       "hours_total": 104,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/553850/5236dcc5d02b1f7aa199eef56253d20be87baef3.jpg"
-    },
-    {
-      "appid": 394360,
-      "name": "Hearts of Iron IV",
-      "hours_2weeks": 1.7,
-      "hours_total": 189.8,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/394360/67b15e2336311b4b4f1eb5c802af0c0dbe644195.jpg"
     },
     {
       "appid": 431960,
