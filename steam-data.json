@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-09T05:55:52.728Z",
+  "updated_at": "2026-11-09T15:58:14.733Z",
   "profile_public": true,
   "total_games": 151,
   "total_hours": 4646.8,
   "currently_playing": null,
-  "persona_state": 4,
+  "persona_state": 1,
   "top_games": [
     {
       "appid": 1049590,
@@ -69,13 +69,6 @@
       "hours_2weeks": 10,
       "hours_total": 109.6,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/553850/5236dcc5d02b1f7aa199eef56253d20be87baef3.jpg"
-    },
-    {
-      "appid": 431960,
-      "name": "Wallpaper Engine",
-      "hours_2weeks": 0.2,
-      "hours_total": 106,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/431960/72edaed9d748c6cf7397ffb1c83f0b837b9ebd9d.jpg"
     },
     {
       "appid": 993090,
