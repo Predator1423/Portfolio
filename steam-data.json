@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-11T10:39:30.831Z",
+  "updated_at": "2026-11-11T19:29:12.276Z",
   "profile_public": true,
   "total_games": 151,
-  "total_hours": 4646.8,
+  "total_hours": 4648.7,
   "currently_playing": null,
-  "persona_state": 3,
+  "persona_state": 0,
   "top_games": [
     {
       "appid": 1049590,
@@ -59,23 +59,23 @@
     {
       "appid": 1142710,
       "name": "Total War: WARHAMMER III",
-      "hours_2weeks": 40.9,
+      "hours_2weeks": 39.1,
       "hours_total": 45.7,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1142710/6db17b5e504c0850a9a60edac9152de019d0d3a8.jpg"
     },
     {
       "appid": 553850,
       "name": "HELLDIVERS™ 2",
-      "hours_2weeks": 10,
+      "hours_2weeks": 8.9,
       "hours_total": 109.6,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/553850/5236dcc5d02b1f7aa199eef56253d20be87baef3.jpg"
     },
     {
-      "appid": 993090,
-      "name": "Lossless Scaling",
-      "hours_2weeks": 0,
-      "hours_total": 2.6,
-      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/993090/42900f430ed7828d2dfa25f07ac02e3de96bc520.jpg"
+      "appid": 4656000,
+      "name": "BOMBANANA!",
+      "hours_2weeks": 2,
+      "hours_total": 4.4,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/4656000/baf7df3f7ee5a54c02a4ee4092b13c84f36e769f.jpg"
     }
   ]
 }
