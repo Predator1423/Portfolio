@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-15T22:42:28.309Z",
+  "updated_at": "2026-11-16T06:03:25.957Z",
   "profile_public": true,
   "total_games": 151,
-  "total_hours": 4648.7,
+  "total_hours": 4650.5,
   "currently_playing": null,
-  "persona_state": 3,
+  "persona_state": 1,
   "top_games": [
     {
       "appid": 1049590,
@@ -59,8 +59,8 @@
     {
       "appid": 1142710,
       "name": "Total War: WARHAMMER III",
-      "hours_2weeks": 11.5,
-      "hours_total": 45.7,
+      "hours_2weeks": 6.4,
+      "hours_total": 47.5,
       "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1142710/6db17b5e504c0850a9a60edac9152de019d0d3a8.jpg"
     },
     {
